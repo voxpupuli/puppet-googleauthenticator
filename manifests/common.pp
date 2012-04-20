@@ -4,7 +4,7 @@ class googleauthenticator::common {
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
-    source => 'puppet:///modules/google-authenticator/pam.d/google-authenticator-root-only',
+    source => 'puppet:///modules/googleauthenticator/pam.d/google-authenticator-root-only',
     notify => Service['ssh'],
   }
 
@@ -13,7 +13,7 @@ class googleauthenticator::common {
     owner  => 'root',
     group  => 'root',
     mode   => '0644',
-    source => 'puppet:///modules/google-authenticator/pam.d/google-authenticator',
+    source => 'puppet:///modules/googleauthenticator/pam.d/google-authenticator',
     notify => Service['ssh'],
   }
 
