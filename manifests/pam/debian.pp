@@ -11,17 +11,13 @@ Parameters:
 - *ensure*: present/absent;
 - *mode*: Set the mode to use ('root-only' or 'all-users' are supported right now).
 
-Example usage:
-
-  kmod::blacklist { 'pcspkr': }
-
 */
 
 define googleauthenticator::pam::debian (
 $mode,
 $ensure='present'
 ) {
-  $ga_chain = $mode ? {
+  $file = $mode ? {
     'root-only' => 'google-authenticator-root-only',
     default     => 'google-authenticator',
   }
@@ -35,8 +31,9 @@ $ensure='present'
         changes => [
           "rm include[. =~ regexp('google-authenticator.*')]", # Purge existing entries
           "ins include after ${lastauth}",
-          "set include[. = ''] '${ga_chain}'",
+          "set include[. = ''] '${file}'",
           ],
+        require => File["/etc/pam.d/${file}"],
         notify => Service['ssh'],
       }
     }
