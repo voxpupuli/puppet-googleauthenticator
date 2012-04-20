@@ -1,0 +1,2 @@
+auth sufficient pam_succeed_if.so quiet uid > 0
+auth required pam_google_authenticator.so

@@ -1,0 +1,8 @@
+<%= secret_key %>
+<% if rate_limit %>" RATE_LIMIT <%= rate_limit %><% end %>
+<% if window_size %>" WINDOW_SIZE <%= window_size %><% end %>
+<% if disallow_reuse %>" DISALLOW_REUSE <%= disallow_reuse %><% end %>
+" TOTP_AUTH
+<% scratch_codes.each do |code| -%>
+<%= code %>
+<% end %>
