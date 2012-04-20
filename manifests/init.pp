@@ -11,7 +11,7 @@ Parameters:
 - *user*: optionally, force the user name
     (otherwise, $name is used)
 - *file*: optionally, force the configuration file
-    (otherwise, ~/.google-authenticator is used);
+    (otherwise, ~/.google_authenticator is used);
 - *rate_limit*: optionally, set rate limit
     (defaults to '3 30');
 - *window_size*: optionally, set window size
@@ -53,8 +53,8 @@ $scratch_codes=[]
   # $real_file can be forced by specifying $file
   if ($file == '') {
     $real_file = $real_user ? {
-      'root'  => '/root/.google-authenticator',
-      default => "/home/${real_user}/.google-authenticator",
+      'root'  => '/root/.google_authenticator',
+      default => "/home/${real_user}/.google_authenticator",
     }
   } else {
     $real_file = $file
