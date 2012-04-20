@@ -16,9 +16,4 @@ class googleauthenticator::common {
     source => 'puppet:///modules/googleauthenticator/pam.d/google-authenticator',
     notify => Service['ssh'],
   }
-
-  case $::operatingsystem {
-    /Debian|Ubuntu/ : { include googleauthenticator::debian }
-    default         : { fail("not supported on ${::operatingsystem}") }
-  }
 }
