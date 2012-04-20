@@ -1,3 +1,30 @@
+/*
+
+== Definition: googleauthenticator
+
+Setup Google-authenticator two-step verification for a user.
+
+Parameters:
+
+- *ensure*: present/absent;
+- *secret_key*: the secret key for the TOTP verification;
+- *user*: optionally, force the user name (otherwise, $name is used)
+- *file*: optionally, force the configuration file (otherwise, ~/.google-authenticator is used);
+- *rate_limit*: optionally, set rate limit (defaults to '3 30');
+- *window_size*: optionally, set window size (defaults to '17');
+- *disallow_reuse*: optionally, set disallow reuse (defaults to true);
+- *scrach_codes*: specify scratch codes for the two-step verification.
+
+You should also setup at least one googleauthenticator::pam resource in order to this this module.
+
+Example usage:
+
+    googleauthenticator {'root':
+      secret_key => 'C6SSDFBBH6P76EDM',
+      scratch_codes => ['78905638', '14036415', '77983530', '22071921', '19861182'],
+    }
+*/
+
 define googleauthenticator (
 $secret_key,
 $ensure='present',
@@ -8,9 +35,6 @@ $window_size='17',
 $disallow_reuse=true,
 $scratch_codes=[]
 ) {
-
-  include googleauthenticator::common
-  include googleauthenticator::sshd
 
   # $real_user defaults to $name
   # it can be forced by specifying $user

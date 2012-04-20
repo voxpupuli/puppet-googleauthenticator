@@ -1,4 +1,14 @@
-class googleauthenticator::common {
+/*
+
+== Class: googleauthenticator::pam::common
+
+Common PAM requirements for googleauthenticator.
+
+It shouldn't be necessary to directly include this class.
+
+*/
+
+class googleauthenticator::pam::common {
   file {'/etc/pam.d/google-authenticator-root-only':
     ensure => present,
     owner  => 'root',

@@ -7,7 +7,7 @@ This module allows to easily deploy google-authenticator two-step authentication
 
 In order to use the module, you have to setup each PAM module using googleauthenticator::pam. Two values are currently possible for the mode:
 
-* root-only: Only root will be prompted for a token for a this PAM module;
+* root-only: Only root will be prompted for a token for this PAM module;
 * all-users: All users will be prompted for a token for this PAM module.
 
 In the second case, users who have not configured google-authenticator on their account will not be able to authenticate using the given module.
