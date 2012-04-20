@@ -2,7 +2,6 @@
 
 == Definition: googleauthenticator::pam::redhat
 
-Set a kernel module as blacklisted.
 Setup a PAM module for Google-authenticator on RedHat/CentOS.
 
 This module is meant to be called from the googleauthenticator::pam

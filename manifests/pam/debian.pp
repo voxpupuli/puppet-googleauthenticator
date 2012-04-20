@@ -2,7 +2,6 @@
 
 == Definition: googleauthenticator::pam::debian
 
-Set a kernel module as blacklisted.
 Setup a PAM module for Google-authenticator on Debian/Ubuntu.
 
 This module is meant to be called from the googleauthenticator::pam
