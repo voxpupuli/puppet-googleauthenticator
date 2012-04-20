@@ -6,11 +6,12 @@ Setup a PAM module to use Google-authenticator.
 
 Parameters:
 - *ensure*: present/absent;
-- *mode*: optionally, set the mode to use ('root-only' or 'all-users' are supported right now).
+- *mode*: optionally, set the mode to use
+    ('root-only' or 'all-users' are supported right now).
 
 Example usage:
 
-    googleauthenticator::pam {'su': 
+    googleauthenticator::pam {'su':
       mode => 'root-only',
     }
 
@@ -26,7 +27,7 @@ $ensure='present'
   if ($name == 'sshd') {
     include googleauthenticator::sshd
   }
-  
+
   case $::operatingsystem {
     /Debian|Ubuntu/ : {
         googleauthenticator::pam::debian {$name:

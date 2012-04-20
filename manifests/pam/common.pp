@@ -9,12 +9,13 @@ It shouldn't be necessary to directly include this class.
 */
 
 class googleauthenticator::pam::common {
+  $package = $::operatingsystem ? {
+    /Debian|Ubuntu/ => 'libpam-google-authenticator',
+    default         => '',
+  }
+
   package {'pam-google-authenticator':
-    name   => $::operatingsystem ? {
-     /Debian|Ubuntu/ => 'libpam-google-authenticator',
-     default         => '',
-    },
-    ensure => $ensure,
+    name => $package,
   }
 
   file {'/etc/pam.d/google-authenticator-root-only':
