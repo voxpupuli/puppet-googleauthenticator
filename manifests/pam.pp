@@ -35,6 +35,12 @@ $ensure='present'
           mode   => $mode,
         }
       }
+    /RedHat|CentOS/ : {
+        googleauthenticator::pam::redhat {$name:
+          ensure => $ensure,
+          mode   => $mode,
+        }
+      }
     default         : { fail("not supported on ${::operatingsystem}") }
   }
 }
