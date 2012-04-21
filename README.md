@@ -32,3 +32,7 @@ Example:
       secret_key => 'C6SSDFBBH6P76EDM',
       scratch_codes => ['78905638', '14036415', '77983530', '22071921', '19861182'],
     }
+
+Note:
+
+Because the PAM module for Google-authenticator currently uses only one file for both configuration and living data (see [ticket #167](http://code.google.com/p/google-authenticator/issues/detail?id=167)), scratch codes that are used get redeployed every time, and current values stored in the ~/.google_authenticator file (such as timestamps for rate limit) get overridden. The cleanest way to handle this would be for the PAM module to use two different files for configuration and living data, but this is currently not possible.
