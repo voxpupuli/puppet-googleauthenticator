@@ -42,16 +42,20 @@ In the second case, users who have not configured google-authenticator on their 
 
 You can setup new modes by adding googleauthenticator::pam::mode definitions, for example:
 
-    googleauthenticator::pam::mode {'sysadmin':
-      # Only ask for a token if users are in the sysadmin group
-      condition => 'user ingroup sysadmin',
+    googleauthenticator::pam::mode {
+      'sysadmin':
+        # Only ask for a token if users are in the sysadmin group
+        condition => 'user ingroup sysadmin';
+
+      'optional-users':
+        # Users with a UID above 1000 don't need a token
+        succeed_if => 'uid > 1000',
+        # It's ok to not have a ~/.google_authenticator file
+        nullok     => true;
     }
 
-    googleauthenticator::pam::mode {'optional-users':
-      # Users with a UID above 1000 don't need a token
-      succeed_if => 'uid > 1000',
-      # It's ok to not have a ~/.google_authenticator file
-      nullok     => true,
+    googleauthenticator::pam::mode {['joe','foo']:
+      mode => 'sysadmin',
     }
 
 Note
