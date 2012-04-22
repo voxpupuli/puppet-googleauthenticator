@@ -19,10 +19,10 @@ class googleauthenticator::pam::common {
     name => $package,
   }
 
-  # Setup the two basic PAM rules
-  googleauthenticator::pam::rule {'root-only':
+  # Setup the two basic PAM modes
+  googleauthenticator::pam::mode {'root-only':
     succeed_if => 'uid > 0',
   }
 
-  googleauthenticator::pam::rule {'all-users': }
+  googleauthenticator::pam::mode {'all-users': }
 }
