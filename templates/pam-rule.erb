@@ -1,0 +1,7 @@
+<% if succeed_if -%>
+auth sufficient pam_succeed_if.so quiet <%= succeed_if %>
+<%- end -%>
+<% if condition -%>
+auth [default=1 success=ignore] pam_succeed_if.so quiet <%= condition %>
+<%- end -%>
+auth required pam_google_authenticator.so <% if nullok %>nullok<% end %>

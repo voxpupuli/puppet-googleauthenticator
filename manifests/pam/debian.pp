@@ -18,10 +18,7 @@ define googleauthenticator::pam::debian (
 $mode,
 $ensure='present'
 ) {
-  $file = $mode ? {
-    'root-only' => 'google-authenticator-root-only',
-    default     => 'google-authenticator',
-  }
+  $rule = "google-authenticator-${mode}"
 
   $lastauth = '*[type = "auth" or label() = "include" and . = "common-auth"][last()]'
 
@@ -33,9 +30,9 @@ $ensure='present'
           # Purge existing entries
           'rm include[. =~ regexp("google-authenticator.*")]',
           "ins include after ${lastauth}",
-          "set include[. = ''] '${file}'",
+          "set include[. = ''] '${rule}'",
           ],
-        require => File["/etc/pam.d/${file}"],
+        require => File["/etc/pam.d/${rule}"],
         notify  => Service['ssh'],
       }
     }

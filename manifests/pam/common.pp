@@ -19,23 +19,10 @@ class googleauthenticator::pam::common {
     name => $package,
   }
 
-  file {'/etc/pam.d/google-authenticator-root-only':
-    ensure  => present,
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0644',
-    source  => 'puppet:///modules/googleauthenticator/pam.d/google-authenticator-root-only',
-    require => Package['pam-google-authenticator'],
-    notify  => Service['ssh'],
+  # Setup the two basic PAM rules
+  googleauthenticator::pam::rule {'root-only':
+    succeed_if => 'uid > 0',
   }
 
-  file {'/etc/pam.d/google-authenticator':
-    ensure  => present,
-    owner   => 'root',
-    group   => 'root',
-    mode    => '0644',
-    source  => 'puppet:///modules/googleauthenticator/pam.d/google-authenticator',
-    require => Package['pam-google-authenticator'],
-    notify  => Service['ssh'],
-  }
+  googleauthenticator::pam::rule {'all-users': }
 }
