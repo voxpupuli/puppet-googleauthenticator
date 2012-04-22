@@ -42,7 +42,7 @@ Example:
     }
 
     # Add 2 step verification for a user
-    googleauthenticator {'root':
+    googleauthenticator::user {'root':
       secret_key => 'C6SSDFBBH6P76EDM',
       scratch_codes => ['78905638', '14036415', '77983530', '22071921', '19861182'],
     }

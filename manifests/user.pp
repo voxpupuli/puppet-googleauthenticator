@@ -25,14 +25,14 @@ in order to use this module.
 
 Example usage:
 
-    googleauthenticator {'root':
+    googleauthenticator::user {'root':
       secret_key    => 'C6SSDFBBH6P76EDM',
       scratch_codes => ['78905638', '14036415', '77983530',
                         '22071921', '19861182'],
     }
 */
 
-define googleauthenticator (
+define googleauthenticator::user (
 $secret_key,
 $ensure='present',
 $user='',
