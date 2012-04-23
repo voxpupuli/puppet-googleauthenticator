@@ -27,7 +27,8 @@ define googleauthenticator::pam::mode (
 $ensure='present',
 $succeed_if=false,
 $condition=false,
-$nullok=false
+$nullok=false,
+$secret=false
 ) {
   file {"/etc/pam.d/google-authenticator-${name}":
     ensure  => $ensure,
