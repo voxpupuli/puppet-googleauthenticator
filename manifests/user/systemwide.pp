@@ -54,8 +54,8 @@ $scratch_codes=[]
 
   file {$user_directory:
     ensure  => $ensure ? {
-      ''      => directory,
-      default => $ensure,
+      'present' => directory,
+      default   => $ensure,
     },
     owner   => $real_user,
     group   => $real_user,
