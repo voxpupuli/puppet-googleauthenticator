@@ -19,10 +19,14 @@ class googleauthenticator::pam::common {
     name => $package,
   }
 
-  # Setup the two basic PAM modes
-  googleauthenticator::pam::mode {'root-only':
-    succeed_if => 'uid > 0',
-  }
+  # Setup the three basic PAM modes
+  googleauthenticator::pam::mode {
+    'all-users':;
 
-  googleauthenticator::pam::mode {'all-users': }
+    'root-only':
+      succeed_if => 'uid > 0';
+
+    'systemwide-users':
+      secret => '/etc/google-authenticator/${USER}/google_authenticator';
+  }
 }

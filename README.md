@@ -35,10 +35,11 @@ Adding PAM modes
 
 In order to use the module, you have to setup each PAM module using googleauthenticator::pam. Two values are currently available by default for the mode:
 
+* all-users: All users will be prompted for a token for this PAM module;
 * root-only: Only root will be prompted for a token for this PAM module;
-* all-users: All users will be prompted for a token for this PAM module.
+* systemwide-users: Google-authenticator files are store in /etc/google-authenticator/${user}/google_authenticator files instead of the home of each user. Use googleauthenticator::user::systemwide to manage the user files. This is useful for users with encrypted home directories.
 
-In the second case, users who have not configured google-authenticator on their account will not be able to authenticate using the given module.
+In the first and third cases, users who have not configured google-authenticator on their account will not be able to authenticate using the given module.
 
 You can setup new modes by adding googleauthenticator::pam::mode definitions, for example:
 

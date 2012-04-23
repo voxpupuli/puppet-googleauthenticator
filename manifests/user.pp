@@ -1,6 +1,6 @@
 /*
 
-== Definition: googleauthenticator
+== Definition: googleauthenticator::user
 
 Setup Google-authenticator two-step verification for a user.
 
