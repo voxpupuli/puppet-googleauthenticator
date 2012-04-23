@@ -10,7 +10,9 @@ Parameters:
 - *ensure*: present/absent;
 - *succeed_if*: optionally, add a condition where the module is ignored;
 - *condition*: optionally, add a condition where the module is not ignored;
-- *nullok*: make module optional (users without a ~/.google_authenticator file will still be able to log in).
+- *nullok*: make module optional (users without a ~/.google_authenticator file will still be able to log in);
+- *secret*: optionally, specify the location of the secret file (you may use ${HOME}, ${USER} and ~);
+- *noskewadj*: optionally, set the noskewadj option.
 
 Example usage:
 
@@ -28,7 +30,8 @@ $ensure='present',
 $succeed_if=false,
 $condition=false,
 $nullok=false,
-$secret=false
+$secret=false,
+$noskewadj=false
 ) {
   file {"/etc/pam.d/google-authenticator-${name}":
     ensure  => $ensure,
