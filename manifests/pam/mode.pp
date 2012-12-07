@@ -38,7 +38,7 @@ $noskewadj=false
     owner   => 'root',
     group   => 'root',
     mode    => '0644',
-    content => template('googleauthenticator/pam-rule.erb'), 
+    content => template('googleauthenticator/pam-rule.erb'),
     notify  => Service['ssh'],
   }
 }
