@@ -52,11 +52,13 @@ $scratch_codes=[]
   $user_directory = "/etc/google-authenticator/${real_user}"
   $user_file = "${user_directory}/google_authenticator"
 
+  $_ensure = $ensure ? {
+    'present' => directory,
+    default   => $ensure,
+  }
+
   file {$user_directory:
-    ensure  => $ensure ? {
-      'present' => directory,
-      default   => $ensure,
-    },
+    ensure  => $_ensure,
     owner   => $real_user,
     group   => $real_user,
     mode    => '0700',
