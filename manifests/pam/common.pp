@@ -4,7 +4,7 @@
 
 Common PAM requirements for googleauthenticator.
 
-It shouldn't be necessary to directly include this class.
+It shouldn’t be necessary to directly include this class.
 
 */
 
