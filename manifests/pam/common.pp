@@ -1,13 +1,9 @@
-/*
-
-== Class: googleauthenticator::pam::common
-
-Common PAM requirements for googleauthenticator.
-
-It shouldn't be necessary to directly include this class.
-
-*/
-
+# == Class: googleauthenticator::pam::common
+#
+# Common PAM requirements for googleauthenticator.
+#
+# It shouldn't be necessary to directly include this class.
+#
 class googleauthenticator::pam::common {
   $package = $::operatingsystem ? {
     /Debian|Ubuntu/ => 'libpam-google-authenticator',
@@ -27,6 +23,6 @@ class googleauthenticator::pam::common {
       succeed_if => 'uid > 0';
 
     'systemwide-users':
-      secret => '/etc/google-authenticator/${USER}/google_authenticator';
+      secret => "/etc/google-authenticator/\${USER}/google_authenticator";
   }
 }

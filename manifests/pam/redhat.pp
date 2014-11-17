@@ -1,22 +1,18 @@
-/*
-
-== Definition: googleauthenticator::pam::redhat
-
-Setup a PAM module for Google-authenticator on RedHat/CentOS.
-
-This module is meant to be called from the googleauthenticator::pam
-wrapper module.
-
-Parameters:
-- *ensure*: present/absent;
-- *mode*: Set the mode to use
-    ('root-only' or 'all-users' are supported right now).
-
-*/
-
-define googleauthenticator::pam::redhat (
-$mode,
-$ensure='present'
+# == Definition: googleauthenticator::pam::redhat
+#
+# Setup a PAM module for Google-authenticator on RedHat/CentOS.
+#
+# This module is meant to be called from the googleauthenticator::pam
+# wrapper module.
+#
+# Parameters:
+# - *ensure*: present/absent;
+# - *mode*: Set the mode to use
+#     ('root-only' or 'all-users' are supported right now).
+#
+define googleauthenticator::pam::redhat(
+  $mode,
+  $ensure='present',
 ) {
   $rule = "google-authenticator-${mode}"
 
