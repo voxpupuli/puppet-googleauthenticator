@@ -17,7 +17,7 @@ deploy:
   provider: puppetforge
   user: camptocamp
   password:
-    secure: ""
+    secure: "qZtDFDSfjs0icw1eE+2gX9Fa68sgnumDrsk31IEKsUwz+raoINCDAk5omZcM8g08mkyr3hKR2wBj0d5cW4sy38IWf0FQ4f6hGjoLD9L2Kc/MWemn5gSlgTHZ/OCGHiA1ReVPmRMSzq7w31U/DidHnxQp9lhunG6gEx59DKyRvQY="
   on:
     tags: true
     # all_branches is required to use tags
