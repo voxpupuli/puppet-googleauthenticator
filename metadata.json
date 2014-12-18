@@ -1,6 +1,6 @@
 {
   "name": "camptocamp-googleauthenticator",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "source": "https://github.com/camptocamp/puppet-googleauthenticator",
   "author": "Camptocamp",
   "license": "Apache 2.0",
@@ -8,5 +8,7 @@
   "description": "Google Authenticator Module for Puppet",
   "project_page": "https://github.com/camptocamp/puppet-googleauthenticator",
   "issues_url": "https://github.com/camptocamp/puppet-googleauthenticator/issues",
-  "dependencies": []
+  "dependencies": [
+
+  ]
 }
