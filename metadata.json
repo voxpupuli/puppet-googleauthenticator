@@ -1,9 +1,9 @@
 {
   "name": "camptocamp-googleauthenticator",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "source": "https://github.com/camptocamp/puppet-googleauthenticator",
   "author": "Camptocamp",
-  "license": "Apache 2.0",
+  "license": "Apache-2.0",
   "summary": "Puppet Google Authenticator Module",
   "description": "Google Authenticator Module for Puppet",
   "project_page": "https://github.com/camptocamp/puppet-googleauthenticator",
