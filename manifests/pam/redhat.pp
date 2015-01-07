@@ -19,7 +19,7 @@ define googleauthenticator::pam::redhat(
   $lastauth = '*[type = "auth" or label() = "include" and . = "common-auth"][last()]'
 
   case $ensure {
-    present: {
+    'present': {
       augeas {"Add google-authenticator to ${name}":
         context => "/files/etc/pam.d/${name}",
         changes => [
@@ -32,7 +32,7 @@ define googleauthenticator::pam::redhat(
         notify  => Service['ssh'],
       }
     }
-    absent: {
+    'absent': {
       augeas {"Purge existing google-authenticator from ${name}":
         context => "/files/etc/pam.d/${name}",
         changes => 'rm include[. =~ regexp("google-authenticator.*")]',
