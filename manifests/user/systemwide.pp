@@ -30,7 +30,7 @@
 define googleauthenticator::user::systemwide(
   $secret_key,
   $ensure='present',
-  $user='',
+  $user=undef,
   $rate_limit='3 30',
   $window_size='17',
   $disallow_reuse=true,
@@ -42,7 +42,7 @@ define googleauthenticator::user::systemwide(
   # $real_user defaults to $name
   # it can be forced by specifying $user
   $real_user = $user ? {
-    ''      => $name,
+    undef   => $name,
     default => $user,
   }
 

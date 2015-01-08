@@ -32,8 +32,8 @@
 define googleauthenticator::user(
   $secret_key,
   $ensure='present',
-  $user='',
-  $file='',
+  $user=undef,
+  $file=undef,
   $rate_limit='3 30',
   $window_size='17',
   $disallow_reuse=true,
@@ -43,18 +43,18 @@ define googleauthenticator::user(
   # $real_user defaults to $name
   # it can be forced by specifying $user
   $real_user = $user ? {
-    ''      => $name,
+    undef   => $name,
     default => $user,
   }
 
   # $real_file can be forced by specifying $file
-  if ($file == '') {
+  if $file {
+    $real_file = $file
+  } else {
     $real_file = $real_user ? {
       'root'  => '/root/.google_authenticator',
       default => "/home/${real_user}/.google_authenticator",
     }
-  } else {
-    $real_file = $file
   }
 
   file {$real_file:
