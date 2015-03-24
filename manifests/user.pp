@@ -33,6 +33,7 @@ define googleauthenticator::user(
   $secret_key,
   $ensure='present',
   $user=undef,
+  $group=undef,
   $file=undef,
   $rate_limit='3 30',
   $window_size='17',
@@ -43,6 +44,11 @@ define googleauthenticator::user(
   # $real_user defaults to $name
   # it can be forced by specifying $user
   $real_user = $user ? {
+    undef   => $name,
+    default => $user,
+  }
+
+  $real_group = group ? {
     undef   => $name,
     default => $user,
   }
@@ -60,7 +66,7 @@ define googleauthenticator::user(
   file {$real_file:
     ensure  => $ensure,
     owner   => $real_user,
-    group   => $real_user,
+    group   => $real_group,
     mode    => '0400',
     content => template('googleauthenticator/google-authenticator.erb'),
   }
