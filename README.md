@@ -1,6 +1,12 @@
 puppet-googleauthenticator
 ===========================
 
+[![Puppet Forge Version](http://img.shields.io/puppetforge/v/camptocamp/googleauthenticator.svg)](https://forge.puppetlabs.com/camptocamp/googleauthenticator)
+[![Puppet Forge Downloads](http://img.shields.io/puppetforge/dt/camptocamp/googleauthenticator.svg)](https://forge.puppetlabs.com/camptocamp/googleauthenticator)
+[![Build Status](https://img.shields.io/travis/camptocamp/puppet-googleauthenticator/master.svg)](https://travis-ci.org/camptocamp/puppet-googleauthenticator)
+[![Gemnasium](https://img.shields.io/gemnasium/camptocamp/puppet-googleauthenticator.svg)](https://gemnasium.com/camptocamp/puppet-googleauthenticator)
+[![By Camptocamp](https://img.shields.io/badge/by-camptocamp-fb7047.svg)](http://www.camptocamp.com)
+
 Google-authenticator module for Puppet.
 
 This module allows to easily deploy google-authenticator two-step authentication for users using the PAM google-authenticator module.
