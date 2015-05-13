@@ -1,3 +1,7 @@
+## 2015-05-13 - Release 1.1.4
+
+Add puppet-lint-file_source_rights-check gem
+
 ## 2015-05-12 - Release 1.1.3
 
 Don't pin beaker
