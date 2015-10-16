@@ -36,7 +36,7 @@ define googleauthenticator::pam::redhat(
       augeas {"Purge existing google-authenticator from ${name}":
         context => "/files/etc/pam.d/${name}",
         changes => 'rm include[. =~ regexp("google-authenticator.*")]',
-        notify  => Service['ssh'],
+        notify  => Service['sshd'],
       }
     }
     default: { fail("Wrong ensure value ${ensure}") }
