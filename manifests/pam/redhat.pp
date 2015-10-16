@@ -29,7 +29,7 @@ define googleauthenticator::pam::redhat(
           "set include[. = ''] '${rule}'",
           ],
         require => File["/etc/pam.d/${rule}"],
-        notify  => Service['ssh'],
+        notify  => Service['sshd'],
       }
     }
     'absent': {
