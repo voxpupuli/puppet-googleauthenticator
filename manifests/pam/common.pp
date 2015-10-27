@@ -22,14 +22,15 @@ class googleauthenticator::pam::common {
 
   # Setup the three basic PAM modes
   googleauthenticator::pam::mode {
-    'all-users':;
+    'all-users':
+       service => $service;
 
     'root-only':
-      succeed_if => 'uid > 0';
+      succeed_if => 'uid > 0',
+      service => $service;
 
     'systemwide-users':
-      secret => "/etc/google-authenticator/\${USER}/google_authenticator";
-    
-    service => $service,
+      secret => "/etc/google-authenticator/\${USER}/google_authenticator",
+      service => $service;
   }
 }
