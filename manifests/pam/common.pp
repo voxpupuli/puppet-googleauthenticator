@@ -10,6 +10,10 @@ class googleauthenticator::pam::common {
     /RedHat|CentOS/ => 'google-authenticator',
     default         => '',
   }
+  $service = $::operatingsystem ? {
+    /RedHat|CentOS/ => 'sshd',
+    default         => 'ssh',
+  }
 
   package {'pam-google-authenticator':
     name => $package,
