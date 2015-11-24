@@ -23,7 +23,7 @@ class googleauthenticator::pam::common {
   # Setup the three basic PAM modes
   googleauthenticator::pam::mode {
     'all-users':
-       service => $service;
+      service => $service;
 
     'root-only':
       succeed_if => 'uid > 0',
