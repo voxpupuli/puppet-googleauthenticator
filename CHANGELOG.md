@@ -1,3 +1,7 @@
+## 2016-03-14 - Release 1.1.12
+
+Fix unit tests to release
+
 ## 2016-03-14 - Release 1.1.11
 
 Fix ERB Templates
