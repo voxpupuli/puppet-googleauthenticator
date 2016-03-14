@@ -1,3 +1,7 @@
+## 2016-03-14 - Release 1.1.11
+
+Fix ERB Templates
+
 ## 2015-08-21 - Release 1.1.10
 
 Use docker for acceptance tests
