@@ -1,4 +1,4 @@
-# == Definition: googleauthenticator::user::systemwide
+# == Definition: googleauthenticator::user::systemwide_user
 #
 # Setup Google-authenticator two-step verification for a user, systemwide.
 #
@@ -27,7 +27,7 @@
 #                         '22071921', '19861182'],
 #     }
 #
-define googleauthenticator::user::systemwide(
+define googleauthenticator::user::systemwide_user(
   $secret_key,
   $ensure='present',
   $user=undef,
@@ -37,7 +37,7 @@ define googleauthenticator::user::systemwide(
   $scratch_codes=[],
 ) {
 
-  contain ::googleauthenticator::user::systemwide::common
+  include ::googleauthenticator::user::systemwide::common
 
   # $real_user defaults to $name
   # it can be forced by specifying $user
@@ -46,18 +46,32 @@ define googleauthenticator::user::systemwide(
     default => $user,
   }
 
-  $secret_file = '/etc/google-authenticator/google_authenticator'
+  $user_directory = "/etc/google-authenticator/${real_user}"
+  $user_file = "${user_directory}/google_authenticator"
 
   $_ensure = $ensure ? {
-    'present' => present,
+    'present' => directory,
     default   => $ensure,
   }
 
-  file {$secret_file:
-    ensure  => $ensure,
+  file {$user_directory:
+    ensure  => $_ensure,
     owner   => $real_user,
     group   => $real_user,
-    mode    => '0400',
-    content => template('googleauthenticator/google-authenticator.erb'),
+    mode    => '0700',
+    # From googleauthenticator::user::systemwide::common
+    require => File['/etc/google-authenticator'],
+  }
+
+  googleauthenticator::user {$name:
+    ensure         => $ensure,
+    secret_key     => $secret_key,
+    user           => $real_user,
+    file           => $user_file,
+    rate_limit     => $rate_limit,
+    window_size    => $window_size,
+    disallow_reuse => $disallow_reuse,
+    scratch_codes  => $scratch_codes,
+    require        => File[$user_directory],
   }
 }

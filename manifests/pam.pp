@@ -18,7 +18,7 @@ define googleauthenticator::pam(
   $ensure='present',
 ) {
 
-  include ::googleauthenticator::pam::common
+  contain ::googleauthenticator::pam::common
 
   if ($name == 'sshd') {
     include ::googleauthenticator::sshd
