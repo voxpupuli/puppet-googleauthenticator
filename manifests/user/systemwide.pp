@@ -29,12 +29,13 @@
 #
 define googleauthenticator::user::systemwide(
   $secret_key,
-  $ensure='present',
-  $user=undef,
-  $rate_limit='3 30',
-  $window_size='17',
-  $disallow_reuse=true,
-  $scratch_codes=[],
+  $ensure              = 'present',
+  $user                = undef,
+  $rate_limit          = '3 30',
+  $window_size         = '17',
+  $disallow_reuse      = true,
+  $scratch_codes       = [],
+  $replace_secret_file = true,
 ) {
 
   contain ::googleauthenticator::user::systemwide::common
@@ -59,5 +60,6 @@ define googleauthenticator::user::systemwide(
     group   => $real_user,
     mode    => '0400',
     content => template('googleauthenticator/google-authenticator.erb'),
+    replace => $replace_secret_file,
   }
 }
