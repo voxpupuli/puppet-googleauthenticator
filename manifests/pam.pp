@@ -16,10 +16,12 @@
 define googleauthenticator::pam(
   $mode='all-users',
   $ensure='present',
-  $servicename,
+  $servicename='ssh',
 ) {
 
-  include ::googleauthenticator::pam::common
+  ::googleauthenticator::pam::common { 'PamCommon':
+    servicename => $servicename
+  }
 
   if ($name == 'sshd') {
     include ::googleauthenticator::sshd
