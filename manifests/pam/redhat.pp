@@ -13,7 +13,7 @@
 define googleauthenticator::pam::redhat(
   $mode,
   $ensure='present',
-  $servicename='ssh',
+  $servicename,
 ) {
   $rule = "google-authenticator-${mode}"
 

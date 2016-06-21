@@ -31,7 +31,7 @@ define googleauthenticator::pam::mode(
   $nullok=false,
   $secret=false,
   $noskewadj=false,
-  $servicename='ssh',
+  $servicename,
 ) {
   file {"/etc/pam.d/google-authenticator-${name}":
     ensure  => $ensure,

@@ -16,7 +16,7 @@
 define googleauthenticator::pam(
   $mode='all-users',
   $ensure='present',
-  $servicename='ssh',
+  $servicename,
 ) {
 
   include ::googleauthenticator::pam::common
