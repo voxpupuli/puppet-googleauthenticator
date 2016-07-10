@@ -5,6 +5,7 @@
 # It shouldn't be necessary to directly include this class.
 #
 class googleauthenticator::pam::common {
+
   $package = $::operatingsystem ? {
     /Debian|Ubuntu/ => 'libpam-google-authenticator',
     /RedHat|CentOS/ => 'google-authenticator',
@@ -17,6 +18,7 @@ class googleauthenticator::pam::common {
 
   # Setup the three basic PAM modes
   googleauthenticator::pam::mode {
+    
     'all-users':;
 
     'root-only':
@@ -24,5 +26,11 @@ class googleauthenticator::pam::common {
 
     'systemwide-users':
       secret => "/etc/google-authenticator/\${USER}/google_authenticator";
+
+    'systemwide':
+      secret => "/etc/google-authenticator/google_authenticator",
+      user   => 'root';
+
   }
+
 }
