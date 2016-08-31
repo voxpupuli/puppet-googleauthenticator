@@ -10,7 +10,7 @@ class googleauthenticator::pam::common {
     /RedHat|CentOS/ => 'google-authenticator',
     default         => '',
   }
-  
+
   $service = $::operatingsystem ? {
     /RedHat|CentOS/ => 'sshd',
     default         => 'ssh',
@@ -27,10 +27,10 @@ class googleauthenticator::pam::common {
 
     'root-only':
       succeed_if => 'uid > 0',
-      service => $service;
+      service    => $service;
 
     'systemwide-users':
-      secret => "/etc/google-authenticator/\${USER}/google_authenticator",
+      secret  => "/etc/google-authenticator/\${USER}/google_authenticator",
       service => $service;
   }
 }
