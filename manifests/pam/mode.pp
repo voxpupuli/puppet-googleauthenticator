@@ -31,7 +31,7 @@ define googleauthenticator::pam::mode(
   $nullok=false,
   $secret=false,
   $noskewadj=false,
-  $servicename,
+  $service='ssh',
 ) {
   file {"/etc/pam.d/google-authenticator-${name}":
     ensure  => $ensure,
@@ -39,6 +39,6 @@ define googleauthenticator::pam::mode(
     group   => 'root',
     mode    => '0644',
     content => template('googleauthenticator/pam-rule.erb'),
-    notify  => Service[$servicename],
+    notify  => Service[$service],
   }
 }
