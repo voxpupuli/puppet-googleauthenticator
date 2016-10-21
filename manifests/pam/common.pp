@@ -32,5 +32,9 @@ class googleauthenticator::pam::common {
     'systemwide-users':
       secret  => "/etc/google-authenticator/\${USER}/google_authenticator",
       service => $service;
+
+    'real-systemwide':
+      secret => "/etc/google-authenticator/google_authenticator",
+      user   => 'root';
   }
 }

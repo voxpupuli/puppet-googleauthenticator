@@ -4,4 +4,4 @@ auth sufficient pam_succeed_if.so quiet <%= @succeed_if %>
 <% if @condition -%>
 auth [default=1 success=ignore] pam_succeed_if.so quiet <%= @condition %>
 <%- end -%>
-auth required pam_google_authenticator.so<% if @nullok %> nullok<% end %><% if @secret %> secret=<%= @secret %><% end %><% if @noskewadj %> noskewadj<% end %>
+auth required pam_google_authenticator.so<% if @nullok %> nullok<% end %><% if @secret %> secret=<%= @secret %><% end %><% if @noskewadj %> noskewadj<% end %><% if @user %> user=<%= @user %><% end %>
