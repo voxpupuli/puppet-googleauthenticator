@@ -1,11 +1,15 @@
+---
+# This file is managed via modulesync
+# https://github.com/voxpupuli/modulesync
+# https://github.com/voxpupuli/modulesync_config
 HOSTS:
-  ubuntu-1510-x64:
+  ubuntu-1204-x64:
     default_apply_opts:
       order: random
       strict_variables:
-    platform: ubuntu-15.10-amd64
+    platform: ubuntu-12.04-amd64
     hypervisor : docker
-    image: ubuntu:15.10
+    image: ubuntu:12.04
     docker_preserve_image: true
     docker_cmd: '["/sbin/init"]'
     docker_image_commands:
@@ -14,3 +18,5 @@ HOSTS:
 CONFIG:
   type: aio
   log_level: debug
+...
+# vim: syntax=yaml
