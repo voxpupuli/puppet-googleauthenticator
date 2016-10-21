@@ -16,7 +16,7 @@
 # - *noskewadj*: optionally, set the noskewadj option.
 #
 # Example usage:
-# 
+#
 #     googleauthenticator::pam::mode {'optional-users':
 #       # Users with a UID above 1000 don't need a token
 #       succeed_if => 'uid > 1000',
@@ -31,7 +31,7 @@ define googleauthenticator::pam::mode(
   $nullok=false,
   $secret=false,
   $noskewadj=false,
-  $user=undef,
+  $service='ssh',
 ) {
   file {"/etc/pam.d/google-authenticator-${name}":
     ensure  => $ensure,
@@ -39,6 +39,6 @@ define googleauthenticator::pam::mode(
     group   => 'root',
     mode    => '0644',
     content => template('googleauthenticator/pam-rule.erb'),
-    notify  => Service['ssh'],
+    notify  => Service[$service],
   }
 }

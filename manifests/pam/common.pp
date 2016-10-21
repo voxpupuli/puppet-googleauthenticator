@@ -12,17 +12,23 @@ class googleauthenticator::pam::common {
     default         => '',
   }
 
+  $service = $::operatingsystem ? {
+    /RedHat|CentOS/ => 'sshd',
+    default         => 'ssh',
+  }
+
   package {'pam-google-authenticator':
     name => $package,
   }
 
   # Setup the three basic PAM modes
   googleauthenticator::pam::mode {
-    
-    'all-users':;
+    'all-users':
+      service => $service;
 
     'root-only':
-      succeed_if => 'uid > 0';
+      succeed_if => 'uid > 0',
+      service    => $service;
 
     'systemwide-users':
       secret => "/etc/google-authenticator/\${USER}/google_authenticator";
@@ -30,7 +36,6 @@ class googleauthenticator::pam::common {
     'systemwide':
       secret => "/etc/google-authenticator/google_authenticator",
       user   => 'root';
-
   }
 
 }

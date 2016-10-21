@@ -1,11 +1,11 @@
 puppet-googleauthenticator
 ===========================
 
-[![Puppet Forge Version](http://img.shields.io/puppetforge/v/camptocamp/googleauthenticator.svg)](https://forge.puppetlabs.com/camptocamp/googleauthenticator)
-[![Puppet Forge Downloads](http://img.shields.io/puppetforge/dt/camptocamp/googleauthenticator.svg)](https://forge.puppetlabs.com/camptocamp/googleauthenticator)
-[![Build Status](https://img.shields.io/travis/camptocamp/puppet-googleauthenticator/master.svg)](https://travis-ci.org/camptocamp/puppet-googleauthenticator)
-[![Gemnasium](https://img.shields.io/gemnasium/camptocamp/puppet-googleauthenticator.svg)](https://gemnasium.com/camptocamp/puppet-googleauthenticator)
-[![By Camptocamp](https://img.shields.io/badge/by-camptocamp-fb7047.svg)](http://www.camptocamp.com)
+[![Puppet Forge Version](http://img.shields.io/puppetforge/v/voxpupuli/googleauthenticator.svg)](https://forge.puppetlabs.com/puppet/googleauthenticator)
+[![Puppet Forge Downloads](http://img.shields.io/puppetforge/dt/voxpupuli/googleauthenticator.svg)](https://forge.puppetlabs.com/puppet/googleauthenticator)
+[![Build Status](https://img.shields.io/travis/voxpupuli/puppet-googleauthenticator/master.svg)](https://travis-ci.org/voxpupuli/puppet-googleauthenticator)
+[![Gemnasium](https://img.shields.io/gemnasium/voxpupuli/puppet-googleauthenticator.svg)](https://gemnasium.com/voxpupuli/puppet-googleauthenticator)
+[![Donated by Camptocamp](https://img.shields.io/badge/donated%20by-camptocamp-fb7047.svg)](#transfer-notice)
 
 Google-authenticator module for Puppet.
 
@@ -70,3 +70,13 @@ Note
 
 Because the PAM module for Google-authenticator currently uses only one file for both configuration and living data (see [ticket #167](http://code.google.com/p/google-authenticator/issues/detail?id=167)), scratch codes that are used get redeployed every time, and current values stored in the ~/.google_authenticator file (such as timestamps for rate limit) get overridden. The cleanest way to handle this would be for the PAM module to use two different files for configuration and living data, but this is currently not possible.
 
+
+
+Transfer Notice
+---------------
+
+This plugin was originally authored by [Camptocamp](http://www.camptocamp.com).
+The maintainer preferred that Puppet Community take ownership of the module for future improvement and maintenance.
+Existing pull requests and issues were transferred over, please fork and continue to contribute here instead of Camptocamp.
+
+Previously: https://github.com/camptocamp/puppet-googleauthenticator

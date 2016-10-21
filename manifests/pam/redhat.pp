@@ -29,14 +29,14 @@ define googleauthenticator::pam::redhat(
           "set include[. = ''] '${rule}'",
           ],
         require => File["/etc/pam.d/${rule}"],
-        notify  => Service['ssh'],
+        notify  => Service['sshd'],
       }
     }
     'absent': {
       augeas {"Purge existing google-authenticator from ${name}":
         context => "/files/etc/pam.d/${name}",
         changes => 'rm include[. =~ regexp("google-authenticator.*")]',
-        notify  => Service['ssh'],
+        notify  => Service['sshd'],
       }
     }
     default: { fail("Wrong ensure value ${ensure}") }
