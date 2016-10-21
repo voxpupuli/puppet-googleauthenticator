@@ -1,3 +1,7 @@
+---
+# This file is managed via modulesync
+# https://github.com/voxpupuli/modulesync
+# https://github.com/voxpupuli/modulesync_config
 HOSTS:
   ubuntu-1404-x64:
     default_apply_opts:
@@ -16,3 +20,5 @@ HOSTS:
 CONFIG:
   type: aio
   log_level: debug
+...
+# vim: syntax=yaml

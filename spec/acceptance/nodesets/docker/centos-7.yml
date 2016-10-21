@@ -1,3 +1,7 @@
+---
+# This file is managed via modulesync
+# https://github.com/voxpupuli/modulesync
+# https://github.com/voxpupuli/modulesync_config
 HOSTS:
   centos-7-x64:
     default_apply_opts:
@@ -9,7 +13,9 @@ HOSTS:
     docker_preserve_image: true
     docker_cmd: '["/usr/sbin/init"]'
     docker_image_commands:
-      - 'yum install -y crontabs tar wget'
+      - 'yum install -y crontabs tar wget iproute'
 CONFIG:
   type: aio
   log_level: debug
+...
+# vim: syntax=yaml
