@@ -65,8 +65,8 @@ define googleauthenticator::user(
 
   file {$real_file:
     ensure  => $ensure,
-    owner   => $real_user,
-    group   => $real_group,
+    owner   => chomp(generate("/usr/bin/id", "-u", $real_user)),
+    group   => chomp(generate("/usr/bin/id", "-g", $real_user)),
     mode    => '0400',
     content => template('googleauthenticator/google-authenticator.erb'),
   }

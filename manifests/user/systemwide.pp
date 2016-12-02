@@ -56,8 +56,8 @@ define googleauthenticator::user::systemwide(
 
   file {$user_directory:
     ensure  => $_ensure,
-    owner   => $real_user,
-    group   => $real_user,
+    owner   => chomp(generate("/usr/bin/id", "-u", $real_user)),
+    group   => chomp(generate("/usr/bin/id", "-g", $real_user)),
     mode    => '0700',
     # From googleauthenticator::user::systemwide::common
     require => File['/etc/google-authenticator'],
