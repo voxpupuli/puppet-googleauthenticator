@@ -8,7 +8,11 @@
   "description": "Google Authenticator Module for Puppet",
   "project_page": "https://github.com/voxpupuli/puppet-googleauthenticator",
   "issues_url": "https://github.com/voxpupuli/puppet-googleauthenticator/issues",
-  "dependencies": [
-
+  "dependencies": [],
+  "requirements": [
+    {
+      "name": "puppet",
+      "version_requirement": ">= 3.8.7 < 5.0.0"
+    }
   ]
 }
