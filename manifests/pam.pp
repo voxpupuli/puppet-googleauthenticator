@@ -16,9 +16,12 @@
 define googleauthenticator::pam(
   $mode='all-users',
   $ensure='present',
+  $service='ssh',
 ) {
 
-  include ::googleauthenticator::pam::common
+  ::googleauthenticator::pam::common { 'PamCommon':
+    service => $service,
+  }
 
   if ($name == 'sshd') {
     include ::googleauthenticator::sshd
@@ -27,14 +30,16 @@ define googleauthenticator::pam(
   case $::operatingsystem {
     /Debian|Ubuntu/ : {
         googleauthenticator::pam::debian {$name:
-          ensure => $ensure,
-          mode   => $mode,
+          ensure  => $ensure,
+          mode    => $mode,
+          service => $service,
         }
       }
     /RedHat|CentOS/ : {
         googleauthenticator::pam::redhat {$name:
-          ensure => $ensure,
-          mode   => $mode,
+          ensure  => $ensure,
+          mode    => $mode,
+          service => $service,
         }
       }
     default         : { fail("not supported on ${::operatingsystem}") }

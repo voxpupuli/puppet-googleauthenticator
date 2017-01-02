@@ -13,6 +13,7 @@
 define googleauthenticator::pam::redhat(
   $mode,
   $ensure='present',
+  $service='sshd',
 ) {
   $rule = "google-authenticator-${mode}"
 
@@ -29,14 +30,14 @@ define googleauthenticator::pam::redhat(
           "set include[. = ''] '${rule}'",
           ],
         require => File["/etc/pam.d/${rule}"],
-        notify  => Service['sshd'],
+        notify  => Service[$service],
       }
     }
     'absent': {
       augeas {"Purge existing google-authenticator from ${name}":
         context => "/files/etc/pam.d/${name}",
         changes => 'rm include[. =~ regexp("google-authenticator.*")]',
-        notify  => Service['sshd'],
+        notify  => Service[$service],
       }
     }
     default: { fail("Wrong ensure value ${ensure}") }
