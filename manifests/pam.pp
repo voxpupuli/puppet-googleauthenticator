@@ -20,7 +20,7 @@ define googleauthenticator::pam(
 ) {
 
   ::googleauthenticator::pam::common { 'PamCommon':
-    service => $service
+    service => $service,
   }
 
   if ($name == 'sshd') {
