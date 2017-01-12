@@ -1,6 +1,6 @@
 ## 2017-01-12 - Release 1.3.0
 
-Last release with Pupept 3 support!
+Last release with Puppet 3 support!
 
 - make the service name configureable
 - Set minimum version_requirement for Puppet
