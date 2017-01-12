@@ -1,3 +1,10 @@
+## 2017-01-12 - Release 1.3.0
+
+Last release with Pupept 3 support!
+
+- make the service name configureable
+- Set minimum version_requirement for Puppet
+
 ## 2016-08-31 - Release 1.2.0
 
 - First release in the Vox Pupuli namespace (transferred from camptocamp)
