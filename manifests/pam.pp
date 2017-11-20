@@ -19,9 +19,7 @@ define googleauthenticator::pam(
   $service='ssh',
 ) {
 
-  ::googleauthenticator::pam::common { 'PamCommon':
-    service => $service,
-  }
+  include ::googleauthenticator::pam::common
 
   if ($name == 'sshd') {
     include ::googleauthenticator::sshd
