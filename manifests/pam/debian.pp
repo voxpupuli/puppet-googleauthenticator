@@ -13,7 +13,6 @@
 define googleauthenticator::pam::debian(
   $mode,
   $ensure='present',
-  $service='ssh',
 ) {
   $rule = "google-authenticator-${mode}"
 
@@ -30,14 +29,14 @@ define googleauthenticator::pam::debian(
           "set include[. = ''] '${rule}'",
           ],
         require => File["/etc/pam.d/${rule}"],
-        notify  => Service[$service],
+        notify  => Service['ssh'],
       }
     }
     'absent': {
       augeas {"Purge existing google-authenticator from ${name}":
         context => "/files/etc/pam.d/${name}",
         changes => 'rm include[. =~ regexp("google-authenticator.*")]',
-        notify  => Service[$service],
+        notify  => Service['ssh'],
       }
     }
     default: { fail("Wrong ensure value ${ensure}") }
