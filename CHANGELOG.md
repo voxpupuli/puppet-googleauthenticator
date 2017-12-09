@@ -4,7 +4,19 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
-## [v2.0.0](https://github.com/voxpupuli/puppet-googleauthenticator/tree/v2.0.0) (2017-10-12)
+## [v2.0.1](https://github.com/voxpupuli/puppet-googleauthenticator/tree/v2.0.1) (2017-12-09)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-googleauthenticator/compare/v2.0.0...v2.0.1)
+
+**Fixed bugs:**
+
+- Revert "Customize ssh service name" [\#37](https://github.com/voxpupuli/puppet-googleauthenticator/pull/37) ([alexjfisher](https://github.com/alexjfisher))
+
+**Merged pull requests:**
+
+- Release 2.0.0 [\#33](https://github.com/voxpupuli/puppet-googleauthenticator/pull/33) ([bastelfreak](https://github.com/bastelfreak))
+
+## [v2.0.0](https://github.com/voxpupuli/puppet-googleauthenticator/tree/v2.0.0) (2017-10-15)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-googleauthenticator/compare/v1.3.0...v2.0.0)
 
