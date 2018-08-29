@@ -20,7 +20,7 @@ define googleauthenticator::pam::redhat(
 
   case $ensure {
     'present': {
-      if ($::facts['os']['release']['major'] >= 7) {
+      if ($facts['os']['release']['major'] >= 7) {
         augeas {"Add google-authenticator to sshd":
           context => '/files/etc/pam.d/sshd',
           changes => [
