@@ -21,17 +21,17 @@ define googleauthenticator::pam::redhat(
   case $ensure {
     'present': {
       if ($facts['os']['release']['major'] >= 7) {
-        augeas {"Add google-authenticator to sshd":
-          context => '/files/etc/pam.d/sshd',
+        augeas {"Add google-authenticator to ${name}":
+          context => "/files/etc/pam.d/${name}",
           changes => [
             # Purge existing entries
             'rm   *[module =~ regexp("google-authenticator.*")]',
             'ins 01 after *[type = "auth" or label() = "include" and . = "common-auth"][last()]',
             'set 01/type auth',
             'set 01/control include',
-            "set 01/module $rule",
+            "set 01/module ${rule}",
             ],
-          onlyif => "match *[type = 'auth'][control = 'include'][module = \"$rule\"] size == 0",
+          onlyif  => "match *[type = 'auth'][control = 'include'][module = \"${rule}\"] size == 0",
           require => File["/etc/pam.d/${rule}"],
           notify  => Service['sshd'],
         }
