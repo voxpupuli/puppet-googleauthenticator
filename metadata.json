@@ -1,6 +1,6 @@
 {
   "name": "puppet-googleauthenticator",
-  "version": "2.0.2",
+  "version": "2.0.3-rc0",
   "source": "https://github.com/voxpupuli/puppet-googleauthenticator",
   "author": "Vox Pupuli",
   "license": "Apache-2.0",
@@ -8,7 +8,9 @@
   "description": "Google Authenticator Module for Puppet",
   "project_page": "https://github.com/voxpupuli/puppet-googleauthenticator",
   "issues_url": "https://github.com/voxpupuli/puppet-googleauthenticator/issues",
-  "dependencies": [],
+  "dependencies": [
+
+  ],
   "requirements": [
     {
       "name": "puppet",
