@@ -18,10 +18,10 @@ define googleauthenticator::pam(
   $ensure='present',
 ) {
 
-  include ::googleauthenticator::pam::common
+  include googleauthenticator::pam::common
 
   if ($name == 'sshd') {
-    include ::googleauthenticator::sshd
+    include googleauthenticator::sshd
   }
 
   case $::operatingsystem {

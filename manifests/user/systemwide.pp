@@ -37,7 +37,7 @@ define googleauthenticator::user::systemwide(
   $scratch_codes=[],
 ) {
 
-  include ::googleauthenticator::user::systemwide::common
+  include googleauthenticator::user::systemwide::common
 
   # $real_user defaults to $name
   # it can be forced by specifying $user
