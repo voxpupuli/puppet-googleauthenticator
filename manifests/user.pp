@@ -64,10 +64,11 @@ define googleauthenticator::user(
   }
 
   file {$real_file:
-    ensure  => $ensure,
-    owner   => $real_user,
-    group   => $real_group,
-    mode    => '0400',
-    content => template('googleauthenticator/google-authenticator.erb'),
+    ensure    => $ensure,
+    owner     => $real_user,
+    group     => $real_group,
+    mode      => '0400',
+    content   => template('googleauthenticator/google-authenticator.erb'),
+    show_diff => false,
   }
 }
