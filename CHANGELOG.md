@@ -4,7 +4,23 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
-## [v2.0.2](https://github.com/voxpupuli/puppet-googleauthenticator/tree/v2.0.2) (2018-09-06)
+## [v3.0.0](https://github.com/voxpupuli/puppet-googleauthenticator/tree/v3.0.0) (2019-03-09)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-googleauthenticator/compare/v2.0.2...v3.0.0)
+
+**Breaking changes:**
+
+- modulesync 2.5.1 & drop Puppet 4 [\#53](https://github.com/voxpupuli/puppet-googleauthenticator/pull/53) ([bastelfreak](https://github.com/bastelfreak))
+
+**Fixed bugs:**
+
+- Do not show diff when modifying the secret file [\#52](https://github.com/voxpupuli/puppet-googleauthenticator/pull/52) ([mricon](https://github.com/mricon))
+
+**Merged pull requests:**
+
+- modulesync 2.1.0 and allow puppet 6.x [\#49](https://github.com/voxpupuli/puppet-googleauthenticator/pull/49) ([bastelfreak](https://github.com/bastelfreak))
+
+## [v2.0.2](https://github.com/voxpupuli/puppet-googleauthenticator/tree/v2.0.2) (2018-09-07)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-googleauthenticator/compare/v2.0.1...v2.0.2)
 
