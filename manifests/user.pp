@@ -48,7 +48,7 @@ define googleauthenticator::user(
     default => $user,
   }
 
-  $real_group = group ? {
+  $real_group = $group ? {
     undef   => $name,
     default => $user,
   }
