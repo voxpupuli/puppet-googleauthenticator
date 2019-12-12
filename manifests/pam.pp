@@ -24,7 +24,7 @@ define googleauthenticator::pam(
     include googleauthenticator::sshd
   }
 
-  case $::operatingsystem {
+  case $facts['os']['name'] {
     /Debian|Ubuntu/ : {
         googleauthenticator::pam::debian {$name:
           ensure => $ensure,
@@ -37,6 +37,6 @@ define googleauthenticator::pam(
           mode   => $mode,
         }
       }
-    default         : { fail("not supported on ${::operatingsystem}") }
+    default         : { fail("not supported on ${facts['os']['name']}") }
   }
 }

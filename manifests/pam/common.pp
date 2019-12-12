@@ -5,13 +5,13 @@
 # It shouldn't be necessary to directly include this class.
 #
 class googleauthenticator::pam::common {
-  $package = $::operatingsystem ? {
+  $package = $facts['os']['name'] ? {
     /Debian|Ubuntu/ => 'libpam-google-authenticator',
     /RedHat|CentOS/ => 'google-authenticator',
     default         => '',
   }
 
-  $service = $::operatingsystem ? {
+  $service = $facts['os']['name'] ? {
     /RedHat|CentOS/ => 'sshd',
     default         => 'ssh',
   }
