@@ -24,7 +24,7 @@
 #       nullok     => true,
 #     }
 #
-define googleauthenticator::pam::mode(
+define googleauthenticator::pam::mode (
   $ensure='present',
   $succeed_if=false,
   $condition=false,
@@ -33,7 +33,7 @@ define googleauthenticator::pam::mode(
   $noskewadj=false,
   $service='ssh',
 ) {
-  file {"/etc/pam.d/google-authenticator-${name}":
+  file { "/etc/pam.d/google-authenticator-${name}":
     ensure  => $ensure,
     owner   => 'root',
     group   => 'root',

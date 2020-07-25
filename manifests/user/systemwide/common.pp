@@ -3,7 +3,7 @@
 # Common class for googleauthenticator::user::systemwide
 #
 class googleauthenticator::user::systemwide::common {
-  file {'/etc/google-authenticator':
+  file { '/etc/google-authenticator':
     ensure => directory,
     owner  => 'root',
     group  => 'root',
