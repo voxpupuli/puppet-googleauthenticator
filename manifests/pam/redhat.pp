@@ -10,7 +10,7 @@
 # - *mode*: Set the mode to use
 #     ('root-only', 'all-users' and 'systemwide-users' are supported right now).
 #
-define googleauthenticator::pam::redhat(
+define googleauthenticator::pam::redhat (
   $mode,
   $ensure='present',
 ) {
@@ -21,7 +21,7 @@ define googleauthenticator::pam::redhat(
   case $ensure {
     'present': {
       if ($facts['os']['release']['major'] >= 7) {
-        augeas {"Add google-authenticator to ${name}":
+        augeas { "Add google-authenticator to ${name}":
           context => "/files/etc/pam.d/${name}",
           changes => [
             # Purge existing entries
@@ -30,27 +30,27 @@ define googleauthenticator::pam::redhat(
             'set 01/type auth',
             'set 01/control include',
             "set 01/module ${rule}",
-            ],
+          ],
           onlyif  => "match *[type = 'auth'][control = 'include'][module = \"${rule}\"] size == 0",
           require => File["/etc/pam.d/${rule}"],
           notify  => Service['sshd'],
         }
       } else {
-        augeas {"Add google-authenticator to ${name}":
+        augeas { "Add google-authenticator to ${name}":
           context => "/files/etc/pam.d/${name}",
           changes => [
             # Purge existing entries
             'rm include[. =~ regexp("google-authenticator.*")]',
             "ins include after ${lastauth}",
             "set include[. = ''] '${rule}'",
-            ],
+          ],
           require => File["/etc/pam.d/${rule}"],
           notify  => Service['sshd'],
         }
       }
     }
     'absent': {
-      augeas {"Purge existing google-authenticator from ${name}":
+      augeas { "Purge existing google-authenticator from ${name}":
         context => "/files/etc/pam.d/${name}",
         changes => 'rm include[. =~ regexp("google-authenticator.*")]',
         notify  => Service['sshd'],

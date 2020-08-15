@@ -16,7 +16,7 @@ class googleauthenticator::pam::common {
     default         => 'ssh',
   }
 
-  package {'pam-google-authenticator':
+  package { 'pam-google-authenticator':
     name => $package,
   }
 

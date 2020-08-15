@@ -27,7 +27,7 @@
 #                         '22071921', '19861182'],
 #     }
 #
-define googleauthenticator::user::systemwide(
+define googleauthenticator::user::systemwide (
   $secret_key,
   $ensure='present',
   $user=undef,
@@ -36,7 +36,6 @@ define googleauthenticator::user::systemwide(
   $disallow_reuse=true,
   $scratch_codes=[],
 ) {
-
   include googleauthenticator::user::systemwide::common
 
   # $real_user defaults to $name
@@ -54,7 +53,7 @@ define googleauthenticator::user::systemwide(
     default   => $ensure,
   }
 
-  file {$user_directory:
+  file { $user_directory:
     ensure  => $_ensure,
     owner   => $real_user,
     group   => $real_user,
@@ -63,7 +62,7 @@ define googleauthenticator::user::systemwide(
     require => File['/etc/google-authenticator'],
   }
 
-  googleauthenticator::user {$name:
+  googleauthenticator::user { $name:
     ensure         => $ensure,
     secret_key     => $secret_key,
     user           => $real_user,

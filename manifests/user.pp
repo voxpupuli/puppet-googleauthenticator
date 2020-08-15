@@ -29,7 +29,7 @@
 #                         '22071921', '19861182'],
 #     }
 #
-define googleauthenticator::user(
+define googleauthenticator::user (
   $secret_key,
   $ensure='present',
   $user=undef,
@@ -40,7 +40,6 @@ define googleauthenticator::user(
   $disallow_reuse=true,
   $scratch_codes=[],
 ) {
-
   # $real_user defaults to $name
   # it can be forced by specifying $user
   $real_user = $user ? {
@@ -63,7 +62,7 @@ define googleauthenticator::user(
     }
   }
 
-  file {$real_file:
+  file { $real_file:
     ensure    => $ensure,
     owner     => $real_user,
     group     => $real_group,

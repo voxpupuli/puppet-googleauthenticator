@@ -13,11 +13,10 @@
 #       mode => 'root-only',
 #     }
 #
-define googleauthenticator::pam(
+define googleauthenticator::pam (
   $mode='all-users',
   $ensure='present',
 ) {
-
   include googleauthenticator::pam::common
 
   if ($name == 'sshd') {
@@ -26,17 +25,17 @@ define googleauthenticator::pam(
 
   case $facts['os']['name'] {
     /Debian|Ubuntu/ : {
-        googleauthenticator::pam::debian {$name:
-          ensure => $ensure,
-          mode   => $mode,
-        }
+      googleauthenticator::pam::debian { $name:
+        ensure => $ensure,
+        mode   => $mode,
       }
+    }
     /RedHat|CentOS/ : {
-        googleauthenticator::pam::redhat {$name:
-          ensure => $ensure,
-          mode   => $mode,
-        }
+      googleauthenticator::pam::redhat { $name:
+        ensure => $ensure,
+        mode   => $mode,
       }
+    }
     default         : { fail("not supported on ${facts['os']['name']}") }
   }
 }
