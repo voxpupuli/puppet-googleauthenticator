@@ -1,7 +1,4 @@
-# == Class: googleauthenticator::user::systemwide::common
-#
-# Common class for googleauthenticator::user::systemwide
-#
+# @summary Common class for googleauthenticator::user::systemwide
 class googleauthenticator::user::systemwide::common {
   file { '/etc/google-authenticator':
     ensure => directory,

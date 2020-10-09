@@ -1,3 +1,7 @@
 ---
 .travis.yml:
   secure: "Mzp+uK8zlxCBt1iVxoROZO87Kogax82M0ZYaX/AwkUcB5M279YoRWAaIk0WUvag+ifh/ltxjaB9QJKRxZD3ysUZajKqu9gJZuv2pANShLiTVOGxsvs/pyXDc56ynmbz7XP5SAwOyW7eJp5l14RpwKWm0mF+Ft2TQFAMbLrRHo1w="
+Gemfile:
+  optional:
+    ':test':
+      - gem: puppet-lint-param-docs

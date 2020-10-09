@@ -1,9 +1,4 @@
-# == Class: googleauthenticator::pam::common
-#
-# Common PAM requirements for googleauthenticator.
-#
-# It shouldn't be necessary to directly include this class.
-#
+# @summary Common PAM requirements for googleauthenticator.
 class googleauthenticator::pam::common {
   $package = $facts['os']['name'] ? {
     /Debian|Ubuntu/ => 'libpam-google-authenticator',
