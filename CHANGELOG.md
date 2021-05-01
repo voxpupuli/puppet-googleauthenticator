@@ -4,7 +4,25 @@ All notable changes to this project will be documented in this file.
 Each new release typically also includes the latest modulesync defaults.
 These should not affect the functionality of the module.
 
-## [v3.0.0](https://github.com/voxpupuli/puppet-googleauthenticator/tree/v3.0.0) (2019-03-09)
+## [v4.0.0](https://github.com/voxpupuli/puppet-googleauthenticator/tree/v4.0.0) (2021-04-28)
+
+[Full Changelog](https://github.com/voxpupuli/puppet-googleauthenticator/compare/v3.0.0...v4.0.0)
+
+**Breaking changes:**
+
+- modulesync 4.1.0; Drop EoL Puppet 5; Add Puppet 7 support [\#68](https://github.com/voxpupuli/puppet-googleauthenticator/pull/68) ([bastelfreak](https://github.com/bastelfreak))
+
+**Fixed bugs:**
+
+- '$group' parameter not used [\#57](https://github.com/voxpupuli/puppet-googleauthenticator/issues/57)
+- pam/redhat: use versioncmp function in conditional [\#67](https://github.com/voxpupuli/puppet-googleauthenticator/pull/67) ([mattiasgiese-giz](https://github.com/mattiasgiese-giz))
+- Add missing char [\#58](https://github.com/voxpupuli/puppet-googleauthenticator/pull/58) ([dhoppe](https://github.com/dhoppe))
+
+**Merged pull requests:**
+
+- modulesync 3.0.0 & puppet-lint updates [\#62](https://github.com/voxpupuli/puppet-googleauthenticator/pull/62) ([bastelfreak](https://github.com/bastelfreak))
+
+## [v3.0.0](https://github.com/voxpupuli/puppet-googleauthenticator/tree/v3.0.0) (2019-05-02)
 
 [Full Changelog](https://github.com/voxpupuli/puppet-googleauthenticator/compare/v2.0.2...v3.0.0)
 
