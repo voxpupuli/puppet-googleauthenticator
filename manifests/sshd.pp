@@ -1,10 +1,4 @@
-# == Class: googleauthenticator::sshd
-#
-# Setup sshd to use Google-authenticator two-step verification.
-#
-# It shouldn't be necessary to directly include this class.
-#
-# It might be better to use some ssh::config definition
+# @summary Setup sshd to use Google-authenticator two-step verification.
 class googleauthenticator::sshd {
   augeas { 'Setup sshd for google-authenticator':
     context => '/files/etc/ssh/sshd_config',

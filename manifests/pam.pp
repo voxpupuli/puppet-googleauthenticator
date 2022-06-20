@@ -1,18 +1,13 @@
-# == Definition: googleauthenticator::pam
+# @summary Setup a PAM module to use Google-authenticator.
 #
-# Setup a PAM module to use Google-authenticator.
+# @param name The name of the PAM module
+# @param mode Optionally, set the mode to use. 'root-only' or 'all-users' are supported right now.
+# @param ensure present/absent
 #
-# Parameters:
-# - *ensure*: present/absent;
-# - *mode*: optionally, set the mode to use
-#     ('root-only' or 'all-users' are supported right now).
-#
-# Example usage:
-#
-#     googleauthenticator::pam {'su':
-#       mode => 'root-only',
-#     }
-#
+# @example Secure the root account with Google authenticator
+#  googleauthenticator::pam {'su':
+#    mode => 'root-only',
+#  }
 define googleauthenticator::pam (
   $mode='all-users',
   $ensure='present',

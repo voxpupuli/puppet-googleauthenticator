@@ -1,15 +1,8 @@
-# == Definition: googleauthenticator::pam::debian
+# @summary Setup a PAM module for Google-authenticator on Debian/Ubuntu.
 #
-# Setup a PAM module for Google-authenticator on Debian/Ubuntu.
-#
-# This module is meant to be called from the googleauthenticator::pam
-# wrapper module.
-#
-# Parameters:
-# - *ensure*: present/absent;
-# - *mode*: Set the mode to use
-#     ('root-only' or 'all-users' are supported right now).
-#
+# @param name The name of the PAM module
+# @param mode Set the mode to use. 'root-only' or 'all-users' are supported right now.
+# @param ensure present/absent
 define googleauthenticator::pam::debian (
   $mode,
   $ensure='present',

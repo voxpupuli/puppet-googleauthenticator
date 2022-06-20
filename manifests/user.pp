@@ -1,34 +1,22 @@
-# == Definition: googleauthenticator::user
+# @summary Setup Google-authenticator two-step verification for a user.
 #
-# Setup Google-authenticator two-step verification for a user.
+# @param name The name of the user
+# @param secret_key The secret key for the TOTP verification.
+# @param ensure present/absent
+# @param user Optionally, force the user name. Otherwise, $name is used.
+# @param group Optionally, force the group name. Otherwise, $name is used.
+# @param file Optionally, force the configuration file. Otherwise, ~/.google_authenticator is used.
+# @param rate_limit Optionally, set rate limit.
+# @param window_size Optionally, set window size
+# @param disallow_reuse Optionally, set disallow reuse
+# @param scratch_codes Specify scratch codes.
 #
-# Parameters:
-#
-# - *ensure*: present/absent;
-# - *secret_key*: the secret key for the TOTP verification;
-# - *user*: optionally, force the user name
-#     (otherwise, $name is used)
-# - *file*: optionally, force the configuration file
-#     (otherwise, ~/.google_authenticator is used);
-# - *rate_limit*: optionally, set rate limit
-#     (defaults to '3 30');
-# - *window_size*: optionally, set window size
-#     (defaults to '17');
-# - *disallow_reuse*: optionally, set disallow reuse
-#     (defaults to true);
-# - *scrach_codes*: specify scratch codes.
-#
-# You should also setup at least one googleauthenticator::pam resource
-# in order to use this module.
-#
-# Example usage:
-#
-#     googleauthenticator::user {'root':
-#       secret_key    => 'C6SSDFBBH6P76EDM',
-#       scratch_codes => ['78905638', '14036415', '77983530',
-#                         '22071921', '19861182'],
-#     }
-#
+# @example Setup Google authenticator for the 'root' user
+#  googleauthenticator::user {'root':
+#    secret_key    => 'C6SSDFBBH6P76EDM',
+#    scratch_codes => ['78905638', '14036415', '77983530',
+#                      '22071921', '19861182'],
+#  }
 define googleauthenticator::user (
   $secret_key,
   $ensure='present',

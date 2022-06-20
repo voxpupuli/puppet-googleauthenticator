@@ -1,32 +1,20 @@
-# == Definition: googleauthenticator::user::systemwide
+# @summary Setup Google-authenticator two-step verification for a user, systemwide.
 #
-# Setup Google-authenticator two-step verification for a user, systemwide.
+# @param name The name of the user
+# @param secret_key The secret key for the TOTP verification.
+# @param ensure present/absent
+# @param user Optionally, force the user name. Otherwise, $name is used.
+# @param rate_limit Optionally, set rate limit.
+# @param window_size Optionally, set window size
+# @param disallow_reuse Optionally, set disallow reuse
+# @param scratch_codes Specify scratch codes.
 #
-# This is especially useful for users with encrypted homes,
-# where the Google-authenticator file cannot be stored in the
-# encrypted home directory.
-#
-# This definition is a wrapper around googleauthenticator::user.
-#
-# Parameters:
-#
-# - *ensure*: present/absent;
-# - *secret_key*: the secret key for the TOTP verification;
-# - *user*: optionally, force the user name
-#     (otherwise, $name is used)
-# - *rate_limit*: optionally, set rate limit;
-# - *window_size*: optionally, set window size;
-# - *disallow_reuse*: optionally, set disallow reuse;
-# - *scrach_codes*: specify scratch codes.
-#
-# Example usage:
-#
-#     googleauthenticator::user::systemwide {'root':
-#       secret_key    => 'C6SSDFBBH6P76EDM',
-#       scratch_codes => ['78905638', '14036415', '77983530',
-#                         '22071921', '19861182'],
-#     }
-#
+# @example Setup systemwide Google authenticator for the 'root' user
+#  googleauthenticator::user::systemwide {'root':
+#    secret_key    => 'C6SSDFBBH6P76EDM',
+#    scratch_codes => ['78905638', '14036415', '77983530',
+#                      '22071921', '19861182'],
+#  }
 define googleauthenticator::user::systemwide (
   $secret_key,
   $ensure='present',
