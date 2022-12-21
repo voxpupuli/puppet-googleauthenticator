@@ -34,7 +34,7 @@ define googleauthenticator::user::systemwide (
   $rate_limit='3 30',
   $window_size='17',
   $disallow_reuse=true,
-  $scratch_codes=[],
+  $scratch_codes= [],
 ) {
   include googleauthenticator::user::systemwide::common
 

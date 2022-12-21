@@ -38,7 +38,7 @@ define googleauthenticator::user (
   $rate_limit='3 30',
   $window_size='17',
   $disallow_reuse=true,
-  $scratch_codes=[],
+  $scratch_codes= [],
 ) {
   # $real_user defaults to $name
   # it can be forced by specifying $user
